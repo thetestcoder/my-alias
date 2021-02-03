@@ -1,3 +1,21 @@
+#functions
+
+gwip(){
+    commitMessage="$1"
+    branchName="$2"
+    if [ "$commitMessage" = "" ]; then
+        commitMessage="--WIP--"
+    fi
+    if ["$branchName" = ""]; then
+        branchName="master"
+    fi
+    git add .
+    eval "git commit -a -m '${commitMessage}'"
+    eval "git push origin '${branchName}'"
+}
+
+
+
 #laravel alias
 alias a="php artisan"    
 alias serve="php artisan serve"
@@ -36,8 +54,42 @@ alias vssh='vagrant ssh'
 alias g='git'
 alias gs='git status'
 alias gp="git push"
-alias gwip='git add . && git commit -m "what is push" && git push'
+alias wip=gwip
+alias gpo="git push origin "
 alias gpull="git pull"
+alias gswitch="git switch "
+alias gco="git checkout "
+alias gcl="git clone"
+alias ga='git add'
+alias gaa='git add .'
+alias gau='git add --update'
+alias gb='git branch'
+alias gbd='git branch --delete '
+alias gc='git commit'
+alias gcm='git commit --message'
+alias gcf='git commit --fixup'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcom='git checkout master'
+alias gcos='git checkout staging'
+alias gcod='git checkout develop'
+alias gd='git diff'
+alias gda='git diff HEAD'
+alias gi='git init'
+alias glg='git log --graph --oneline --decorate --all'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias gm='git merge --no-ff'
+alias gma='git merge --abort'
+alias gmc='git merge --continue'
+alias gpr='git pull --rebase'
+alias gr='git rebase'
+alias gss='git status --short'
+alias gst='git stash'
+alias gsta='git stash apply'
+alias gstd='git stash drop'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash save'
 
 
 #docker alias
@@ -67,5 +119,8 @@ alias ninstall="npm init nuxt-app "
 #alias
 alias which="alias"
 
+#mysql
+alias db="mysql -u root"
+alias dbcreate='function _dbcreate(){ mysql -u root -e "create database $1"; };_dbcreate'
 
 
