@@ -15,6 +15,11 @@ gwip(){
 }
 
 
+#php
+
+alias lserve="php -S localhost:8000 -t public"
+
+
 
 #laravel alias
 alias a="php artisan"    
@@ -124,3 +129,18 @@ alias db="mysql -u root"
 alias dbcreate='function _dbcreate(){ mysql -u root -e "create database $1"; };_dbcreate'
 
 
+#python
+
+
+
+
+
+
+
+#django
+alias dserver="py manage.py runserver"
+alias dapp="py manage.py startapp "
+alias dmigration="py manage.py makemigrations "
+alias dmigrate="py manage.py migrate"
+alias dshell="py manage.py shell"
+alias dcreatesuperuser="py manage.py createsuperuser"
