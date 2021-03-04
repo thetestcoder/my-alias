@@ -15,6 +15,11 @@ gwip(){
 }
 
 
+
+# just IMP
+alias myexternalip="curl ipinfo.io/ip"
+
+
 #php
 
 alias lserve="php -S localhost:8000 -t public"
@@ -24,6 +29,7 @@ alias lserve="php -S localhost:8000 -t public"
 #laravel alias
 alias a="php artisan"    
 alias serve="php artisan serve"
+alias eserver="php artisan serve --host=0.0.0.0"
 alias par:l='php artisan route:list'
 alias pam='php artisan migrate'
 alias pam:r='php artisan migrate:refresh'
@@ -126,7 +132,10 @@ alias which="alias"
 
 #mysql
 alias db="mysql -u root"
-alias dbcreate='function _dbcreate(){ mysql -u root -e "create database $1"; };_dbcreate'
+alias dbcreate='function _dbcreate(){ mysql -u root -e "create database $1"; echo "$1 Database Created"; };_dbcreate'
+alias dbtables='function _dbtables(){ mysql -u root -e "use $1; show tables"; };_dbtables'
+alias dbtabledata='function _dbtabledata(){ mysql -u root -e "use $1; select * from $2"; };_dbtabledata'
+
 
 
 #python
