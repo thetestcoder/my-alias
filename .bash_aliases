@@ -14,6 +14,14 @@ gwip(){
     eval "git push origin '${branchName}'"
 }
 
+gcommit(){
+    commitMessage="$1"
+    if [ "$commitMessage" = "" ]; then
+        commitMessage="--WIP--"
+    fi
+    git add .
+    eval "git commit -a -m '${commitMessage}'"
+}
 
 
 # just IMP
@@ -101,6 +109,8 @@ alias gstd='git stash drop'
 alias gstl='git stash list'
 alias gstp='git stash pop'
 alias gsts='git stash save'
+
+alias commit=gcommit
 
 
 #docker alias
