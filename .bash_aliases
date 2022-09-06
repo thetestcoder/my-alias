@@ -36,18 +36,21 @@ alias lserve="php -S localhost:8000 -t public"
 
 #laravel alias
 alias a="php artisan"    
-alias serve="php artisan serve"
+alias pa="php artisan"    
+alias pserve="php artisan serve"
 alias eserver="php artisan serve --host=0.0.0.0"
 alias par:l='php artisan route:list'
 alias pam='php artisan migrate'
 alias pam:r='php artisan migrate:refresh'
 alias pam:rs='php artisan migrate:refresh --seed'
 alias tinker='php artisan tinker'
-alias pcntrl='php artisan make:controller '
+alias pctrl='php artisan make:controller '
 alias pmodel='php artisan make:model '
 alias pmig='php artisan make:migration '
 alias pmid='php artisan make:middleware '
 alias ppolicy='php artisan make:policy '
+alias pest='php artisan test '
+alias pestf='php artisan test --filter '
 
 
 #phpunit alias
@@ -55,6 +58,7 @@ alias p="vendor/bin/phpunit"
 alias pf="vendor/bin/phpunit --filter "
 alias pg="vendor/bin/phpunit --group "
 alias test='vendor/bin/phpunit'
+alias testreport='php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-clover=reports/coverage/coverage.html --coverage-html=reports/coverage'
 alias phpunit='vendor/bin/phpunit'
 
 
@@ -163,3 +167,18 @@ alias dmigration="py manage.py makemigrations "
 alias dmigrate="py manage.py migrate"
 alias dshell="py manage.py shell"
 alias dcreatesuperuser="py manage.py createsuperuser"
+
+
+
+# helpers
+alias ..="cd .."
+
+
+# VM 
+alias vm="ssh vagrant@127.0.0.1 -p 2222"
+function homestead() {
+ ( cd ~/Homestead && vagrant $* )
+}
+function hs() {
+ ( cd ~/Homestead && vagrant $* )
+}
