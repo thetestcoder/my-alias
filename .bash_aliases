@@ -118,9 +118,16 @@ alias commit=gcommit
 
 
 #docker alias
-alias d='docker'
+alias d='sudo docker'
 alias dc='docker-compose'
-alias dm='docker-machine'
+alias dcd='sudo docker compose down'
+alias dcup='sudo docker compose up -d'
+alias dm='sudo docker-machine'
+alias dps='sudo docker ps'
+alias dbash=dockerbash
+alias dphp='sudo docker exec -it php /bin/bash'
+alias dsail=dockerPhpExec
+alias ddownall='sudo docker stop $(sudo docker ps -a -q)'
 
 #npm 
 alias n='npm'
