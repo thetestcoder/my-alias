@@ -1,3 +1,5 @@
+#functions
+
 # just IMP
 alias myexternalip="curl ipinfo.io/ip"
 
@@ -5,6 +7,12 @@ alias myexternalip="curl ipinfo.io/ip"
 #php
 
 alias lserve="php -S localhost:8000 -t public"
+
+# basic
+
+alias xterm="/usr/bin/deepin-terminal"
+alias current="open ."
+alias home="open ~"
 
 
 
@@ -101,7 +109,11 @@ alias dps='sudo docker ps'
 alias dbash=dockerbash
 alias dphp='sudo docker exec -it php /bin/bash'
 alias dsail=dockerPhpExec
+alias dpt=dockerPhpExecPhpUnit
+alias dpf=dockerPhpExecPhpUnitFilter
+alias dusk=dockerPhpExecDusk
 alias ddownall='sudo docker stop $(sudo docker ps -a -q)'
+alias drmall='sudo docker rm -f $(sudo docker ps -a -q)'
 
 #npm 
 alias n='npm'
@@ -174,10 +186,25 @@ function gcommit(){
 
 function dockerbash(){
     container_id="$1"
-    eval "sudo docker exec -it '${container_id}' /bin/bash"
+    eval "reset && sudo docker exec -it '${container_id}' /bin/bash"
 }
 
 function dockerPhpExec(){
     command_string="'$*'"
-    eval "sudo docker exec php '${command_string}'"
+    eval "reset && sudo docker exec php '${command_string}'"
+}
+
+function dockerPhpExecPhpUnit(){
+    command_string="'$*'"
+    eval "reset &&  sudo docker exec php php artisan test --colors=always '${command_string}'"
+}
+
+
+function dockerPhpExecPhpUnitFilter(){
+    command_string="'$*'"
+    eval "reset && sudo docker exec php php artisan test --colors=always --filter '${command_string}'"
+}
+
+function dockerPhpExecDusk(){
+    eval "reset && sudo docker exec php php artisan dusk --colors=always"
 }
